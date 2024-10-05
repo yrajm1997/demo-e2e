@@ -123,7 +123,7 @@ def run_training() -> None:
 
 if __name__ == "__main__":
     print("Re-training:", os.environ['RE_TRAIN'])
-    if os.environ['RE_TRAIN']:    
+    if os.environ['RE_TRAIN']=='Yes':
         run_training()
         
         
