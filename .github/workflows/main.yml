@@ -7,7 +7,8 @@ on:
 
 jobs:
   train:
-    if: false      # Re-train ?
+    env:
+      RE_TRAIN: false      # Re-train ?
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -18,10 +19,12 @@ jobs:
       with:
         python-version: '3.10'
     - name: Install dependencies
+      if: RE_TRAIN
       run: pip install -r requirements/requirements.txt
     - name: Train and save pipeline
+      if: RE_TRAIN
       env:
-        RE_TRAIN: True
+        #RE_TRAIN: True
         DATA_VERSION: v1.6
         GH_USERNAME: ${{ secrets.GH_USERNAME }}
         GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
