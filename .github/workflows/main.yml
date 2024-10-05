@@ -7,7 +7,7 @@ on:
 
 jobs:
   train:
-    if: true      # Re-train ?
+    if: false      # Re-train ?
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -56,6 +56,8 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements/test_requirements.txt
     - name: Test with pytest
-      #env:
+      env:
+        GH_USERNAME: ${{ secrets.GH_USERNAME }}
+        GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
       #  MLFLOW_TRACKING_URI: http://13.201.73.24:5000/
       run: pytest
