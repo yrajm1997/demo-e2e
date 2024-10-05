@@ -50,6 +50,7 @@ def pre_pipeline_preparation(*, data_frame: pd.DataFrame) -> pd.DataFrame:
 
 
 def read_data_file():
+    import os
     import dvc.api
     import pandas as pd
     repo = 'https://' + os.environ['GH_USERNAME'] + ':' + os.environ['GH_ACCESS_TOKEN'] + '@github.com/yrajm1997/dvc-test'
