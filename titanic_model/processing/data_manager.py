@@ -65,7 +65,7 @@ def read_data_file():
 
 
 def _load_raw_dataset(*, file_name: str) -> pd.DataFrame:
-    dataframe = read_data_file()     #pd.read_csv(Path(f"{DATASET_DIR}/{file_name}"))
+    dataframe = pd.read_csv(Path(f"{DATASET_DIR}/{file_name}"))
     return dataframe
 
 def load_dataset(*, file_name: str) -> pd.DataFrame:

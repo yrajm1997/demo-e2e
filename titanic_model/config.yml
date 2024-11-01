@@ -69,4 +69,4 @@ max_features: 3
 
 # mlflow tracking uri
 registered_model_name: sklearn-titanic-rf-model
-mlflow_tracking_uri: https://opulent-goldfish-gwrwpvrg644hw656-5000.app.github.dev/
+mlflow_tracking_uri: https://jubilant-parakeet-pqwq65wxwwrf6pp7-5000.app.github.dev/
