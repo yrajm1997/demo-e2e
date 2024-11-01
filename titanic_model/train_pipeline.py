@@ -25,7 +25,7 @@ def run_training() -> None:
     mlflow.set_tracking_uri(config.app_config.mlflow_tracking_uri)
     # Set an experiment name, unique and case-sensitive
     # It will create a new experiment if the experiment with given doesn't exist
-    exp = mlflow.set_experiment(experiment_name = "Titanic-Survival-Pred")
+    exp = mlflow.set_experiment(experiment_name = "Titanic-Survival-Prediction")
 
     # Start RUN
     mlflow.start_run(experiment_id= exp.experiment_id)        # experiment id under which to create the current run
