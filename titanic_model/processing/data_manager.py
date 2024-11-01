@@ -53,7 +53,7 @@ def read_data_file():
     import os
     import dvc.api
     import pandas as pd
-    repo = 'https://' + os.environ['GH_USERNAME'] + ':' + os.environ['GH_ACCESS_TOKEN'] + '@github.com/yrajm1997/dvc-proj'
+    repo = 'https://' + os.environ['GH_USERNAME'] + ':' + os.environ['GH_ACCESS_TOKEN'] + '@github.com/yrajm1997/dvc-titanic-repo'
     data_revision = os.environ['DATA_VERSION']
     remote_config = {
         'access_key_id': os.environ["AWS_ACCESS_KEY_ID"],
