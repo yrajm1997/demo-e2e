@@ -8,7 +8,7 @@ on:
 jobs:
   train:
     env:
-      RE_TRAIN: Yes      # Re-train 'Yes' / 'No'?
+      RE_TRAIN: No      # Re-train 'Yes' / 'No'?
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -119,4 +119,23 @@ jobs:
 
     - name: Logout to Docker hub
       run: docker logout
+
+
+  deploy:
+    needs: [train, test, build, push-image]
+    runs-on: self-hosted
+
+    steps:
+      - name: Pull Docker Image
+        env: 
+          DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
+        run: sudo docker pull $DOCKER_USER/titanic-fastapi-nov2:latest
+    
+      - name: Delete Old Docker Container
+        run: sudo docker rm -f titanic-fastapi-container || true
+    
+      - name: Run Docker Container
+        env: 
+          DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
+        run: sudo docker run -it -d -p 8001:8001 --name titanic-fastapi-container $DOCKER_USER/titanic-fastapi-nov2:latest
 
