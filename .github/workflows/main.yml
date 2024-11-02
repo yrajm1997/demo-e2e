@@ -83,7 +83,7 @@ jobs:
       run: pip install --upgrade build
     - name: Build package
       run: python -m build
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
         name: my-build-package
         path: dist/*.whl
@@ -96,7 +96,7 @@ jobs:
     - name: Repo Checkout
       uses: actions/checkout@v3
 
-    - uses: actions/download-artifact@v2
+    - uses: actions/download-artifact@v3
       with:
         name: my-build-package
         path: titanic_model_api
